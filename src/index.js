@@ -24,16 +24,37 @@ const h1 = <div className="div">
 // 对比
 let div1 = <div>我是div1</div>
 let div2 = React.createElement('div', null, '我是div2')
-console.log(div1, div2);
+console.log('虚拟dom', div1, div2);
+
+// 数据绑定
+// - 单大括号中可以使用任意的 JavaScript 表达式 （值，变量，函数调用，三元运算符，数组(基本类型，jsx)）
+// - JSX 自身也是 JS 表达式 （语法糖：React.createElement()）
+// - 注意：不能在{}中出现语句和对象（比如：if/for，{a:100} 等） 
 
 
-let b = 'hello jsx 插值表达式'
+let fn = () => {
+  // 返回一个值=>显示在模板里面
+  console.log('fn执行了')
+  return (<span>10000</span>)
+}
+let b = 'hello jsx 插值表达式', abc = '123', obj = { a: 1, b: 2 }
 // 只能有一个根标签，采用小驼峰命名
 const div3 = (
   <div className='div'>
     <div>
-      <h1>12345</h1>
-      <p>{b}</p>
+      <h1>{b}</h1>
+      <p>值：{1}</p>
+      <ul>
+        <li>字符串：{'str'}</li>
+        <li>bool+三元：{true ? 1 : 0}</li>
+        <li>变量：{abc}</li>
+        <li>函数调用：{fn()}</li>
+        <li>{<b>我是b标签</b>}</li>
+        <li>数组：{[1, 2, 3]}</li>
+        {/* 不支持写obj对象，但是可以写对象的键 */}
+        {/* <li>{{ a: 1, b: 2 }}</li> */}
+        <li>obj.a：{obj.a}</li>
+      </ul>
     </div>
   </div>
 
