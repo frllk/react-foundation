@@ -124,6 +124,31 @@ const list_tpl = (
 // 行内样式-style
 // 类名 - className（推荐）
 
-ReactDOM.render(list_tpl,
+
+
+//****************************************************************************************************************** */
+
+
+const layout_1 = (
+  <div>
+    <h1>圣杯布局：左右两侧固定，中间自适应</h1>
+    <div className="wrap">
+      <div className="left">左</div>
+      <div className="center">中</div>
+      <div className="right">右</div>
+    </div>
+  </div>
+)
+
+
+
+
+
+
+
+
+
+
+ReactDOM.render(layout_1,
   document.getElementById('root')
 );
