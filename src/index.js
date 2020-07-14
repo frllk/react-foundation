@@ -26,7 +26,7 @@ let div1 = <div>我是div1</div>
 let div2 = React.createElement('div', null, '我是div2')
 console.log('虚拟dom', div1, div2);
 
-// 数据绑定
+// 数据绑定*************************************************************
 // - 单大括号中可以使用任意的 JavaScript 表达式 （值，变量，函数调用，三元运算符，数组(基本类型，jsx)）
 // - JSX 自身也是 JS 表达式 （语法糖：React.createElement()）
 // - 注意：不能在{}中出现语句和对象（比如：if/for，{a:100} 等） 
@@ -61,7 +61,7 @@ const div3 = (
 )
 
 
-// 条件渲染
+// 条件渲染*************************************************************
 let loaded = false // 数据是否请求成功
 // 函数方式
 let isLoaded = (loaded) => {
@@ -88,8 +88,38 @@ const loading = (
   </div>
 )
 
-// 列表渲染
+// 列表渲染*************************************************************
+// 假数据
+const songs = [
+  { id: 1, name: '野狼disco' },
+  { id: 2, name: '像我这样的人' },
+  { id: 3, name: '桥边姑娘' },
+]
 
-ReactDOM.render(loading,
+// 使用map方法做列表渲染
+const renderSongs = () => {
+  return songs.map((item, i) => {
+    return <li key={item.id}>{item.name}</li>
+  })
+}
+
+// 列表渲染模板
+// jsx会调用React.createElement创建元素，并将元素渲染到对应标签中
+const list_tpl = (
+  <div>
+    <ul>
+      {
+        // 取出数组中的项放到这里渲染
+        // [<li>1</li>, <li>2</li>]
+        songs.map((item, i) => {
+          return <li key={item.id}>{item.name}</li>
+        })
+        // renderSongs()
+      }
+    </ul>
+  </div>
+)
+
+ReactDOM.render(list_tpl,
   document.getElementById('root')
 );
