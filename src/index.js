@@ -37,12 +37,13 @@ let fn = () => {
   console.log('fn执行了')
   return (<span>10000</span>)
 }
-let b = 'hello jsx 插值表达式', abc = '123', obj = { a: 1, b: 2 }
+let b = 'hello jsx 插值表达式', abc = '123', obj = { a: 1, b: 2 }, title = '数据绑定'
 // 只能有一个根标签，采用小驼峰命名
 const div3 = (
   <div className='div'>
     <div>
       <h1>{b}</h1>
+      <h1>{title}</h1>
       <p>值：{1}</p>
       <ul>
         <li>字符串：{'str'}</li>
@@ -57,9 +58,38 @@ const div3 = (
       </ul>
     </div>
   </div>
-
 )
 
-ReactDOM.render(div3,
+
+// 条件渲染
+let loaded = false // 数据是否请求成功
+// 函数方式
+let isLoaded = (loaded) => {
+  if (loaded) {
+    return (
+      <div>
+        <p><span>请求成功了！</span></p>
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        <p><b>请求中......！</b></p>
+      </div>
+    )
+  }
+}
+const loading = (
+  <div className="div">
+    {/* 三元表达式的形式 */}
+    <h1>{loaded ? <span>请求成功了</span> : <span>请求中...</span>}</h1>
+    {/* 函数调用形式：比较复杂时使用 */}
+    <p>{isLoaded(true)}</p>
+  </div>
+)
+
+// 列表渲染
+
+ReactDOM.render(loading,
   document.getElementById('root')
 );
