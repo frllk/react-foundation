@@ -4,3 +4,8 @@
   background-color: orange;
   color: #fff;
 }
+
+.item {
+  padding: 10px;
+  color: greenyellow !important;
+}

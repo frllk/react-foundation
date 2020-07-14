@@ -91,9 +91,9 @@ const loading = (
 // 列表渲染*************************************************************
 // 假数据
 const songs = [
-  { id: 1, name: '野狼disco' },
-  { id: 2, name: '像我这样的人' },
-  { id: 3, name: '桥边姑娘' },
+  { id: 1, color: 'red', name: '野狼disco' },
+  { id: 2, color: 'orange', name: '像我这样的人' },
+  { id: 3, color: 'blue', name: '桥边姑娘' },
 ]
 
 // 使用map方法做列表渲染
@@ -112,13 +112,17 @@ const list_tpl = (
         // 取出数组中的项放到这里渲染
         // [<li>1</li>, <li>2</li>]
         songs.map((item, i) => {
-          return <li key={item.id}>{item.name}</li>
+          return <li className='item' key={item.id} style={{ backgroundColor: item.color, color: '#fff' }}>{item.name}</li>
         })
         // renderSongs()
       }
     </ul>
   </div>
 )
+
+// jsx样式处理
+// 行内样式-style
+// 类名 - className（推荐）
 
 ReactDOM.render(list_tpl,
   document.getElementById('root')
