@@ -26,11 +26,14 @@ let div1 = <div>我是div1</div>
 let div2 = React.createElement('div', null, '我是div2')
 console.log(div1, div2);
 
+
+let b = 'hello jsx 插值表达式'
 // 只能有一个根标签，采用小驼峰命名
 const div3 = (
   <div className='div'>
     <div>
       <h1>12345</h1>
+      <p>{b}</p>
     </div>
   </div>
 
