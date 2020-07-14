@@ -3,6 +3,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { render } from '@testing-library/react';
 
 // 使用React.createElement创建react元素
 // const h1 = React.createElement('h1', { id: 'test' }, 'hello react！')
@@ -126,7 +127,7 @@ const list_tpl = (
 
 
 
-//****************************************************************************************************************** */
+//******************************************************************************** */
 
 
 const layout_1 = (
@@ -142,13 +143,58 @@ const layout_1 = (
 
 
 
+//************************************组件******************************************** */
+// 1 使用函数创建组件
+// - 函数组件：使用 JS 的函数（或箭头函数）创建的组件 
+//   - 函数体内要返回元素（jsx）
+// - 渲染函数组件：用函数名作为组件标签名
 
+// 函数组件首字母大写 大驼峰形式
+function Fnc () {
+  const num = 100
+  // 返回模板
+  return (
+    <div>
+      <h1>我是函数组件1</h1>
+      <p>{num}</p>
+    </div>
+  )
+}
+const Fnc2 = () => {
+  return (
+    <div>
+      <h1>我是函数组件2</h1>
+    </div>
+  )
+}
 
+// 2.使用class创建组件
+// 语法
+// - 类组件：使用 ES6 的 class关键字 创建的组件 
+// - 类组件应该继承 React.Component 父类，从而可以使用父类中提供的方法和属性  - 
+// - 类里面实现父类提供的render()， 返回一个模板
+// 标签名=>类名
 
+class Compt extends React.Component {
+  render () {
+    return (
+      <div>
+        <h1>我是类组件</h1>
+      </div>
+    )
+  }
+}
+// jsx模板
+const div6 = (
+  <div>
+    <h1>函数组件</h1>
+    <Fnc></Fnc>
+    <Fnc2></Fnc2>
+    <hr />
+    <Compt></Compt>
+  </div>
+)
 
-
-
-
-ReactDOM.render(layout_1,
+ReactDOM.render(div6,
   document.getElementById('root')
 );
