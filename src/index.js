@@ -8,6 +8,8 @@ import FunComp from './components/FunComp'
 import ClaComp from './components/ClaComp'
 import ClaCompEvent from './components/events/ClaCompEvent'
 import FunCompEvent from './components/events/FunCompEvent'
+import ResponsiveIndex from './components/responsive'
+import FormIndex from './components/form'
 
 
 // 使用React.createElement创建react元素
@@ -211,6 +213,10 @@ const tpl = (
     <ClaCompEvent />
     <hr />
     <FunCompEvent />
+    <hr />
+    <ResponsiveIndex />
+    <hr />
+    <FormIndex />
   </div>
 )
 
