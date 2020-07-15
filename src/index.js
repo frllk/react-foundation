@@ -10,6 +10,7 @@ import ClaCompEvent from './components/events/ClaCompEvent'
 import FunCompEvent from './components/events/FunCompEvent'
 import ResponsiveIndex from './components/responsive'
 import FormIndex from './components/form'
+import Comment from './components/comment'
 
 
 // 使用React.createElement创建react元素
@@ -210,13 +211,15 @@ const div6 = (
 // jsx模板
 const tpl = (
   <div>
-    <ClaCompEvent />
+    {/* <ClaCompEvent />
     <hr />
     <FunCompEvent />
     <hr />
     <ResponsiveIndex />
     <hr />
     <FormIndex />
+    <hr /> */}
+    <Comment />
   </div>
 )
 

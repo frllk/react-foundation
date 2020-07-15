@@ -1,0 +1,67 @@
+body {
+  background-color: pink;
+}
+
+.box {
+  margin: 100px auto;
+  width: 360px;
+  padding: 20px;
+  border: 1px solid #eee;
+  color: #666;
+}
+
+.box p {
+  margin-bottom: 10px;
+}
+
+.box p input,
+.box p textarea {
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+}
+
+.box p input {
+  height: 35px;
+  line-height: 35px;
+}
+
+.box p textarea {
+  padding: 10px;
+  height: 100px;
+  /* resize:none; */
+}
+
+.btn {
+  padding: 0 10px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  border: none;
+  background: rgb(24, 148, 250);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.line {
+  margin-top: 20px;
+  background: #eee;
+  height: 1px;
+  border: none
+}
+
+.list {
+  padding-left: 10px;
+}
+
+.pline {
+  border-bottom: 1px solid #eee;
+  line-height: 35px;
+}
+
+.list .nodata {
+  list-style: none;
+  text-align: center;
+}
