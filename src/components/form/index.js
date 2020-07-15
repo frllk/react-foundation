@@ -27,7 +27,7 @@ export default class index extends Component {
   render () {
     return (
       <div className="form">
-        <h1>reactd 表单处理</h1>
+        <h1>react 表单处理</h1>
         {/* 表单 */}
         <form >
           <input placeholder="请输入" type="text" value={this.state.count} onChange={this.hChange} />
