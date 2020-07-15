@@ -3,3 +3,24 @@
   color: #fff;
   padding: 20px;
 }
+
+.form label {
+  display: inline-block;
+  width: 80px;
+}
+
+.form input {
+  border: 0;
+  width: 200px;
+  height: 30px;
+  margin: 5px 0;
+  outline: none;
+}
+
+.form button {
+  border: 0;
+  width: 100px;
+  height: 40px;
+  margin: 5px 0;
+  outline: none;
+}
