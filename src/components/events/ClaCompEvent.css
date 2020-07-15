@@ -1,0 +1,11 @@
+.cla_box {
+  background-color: red;
+  color: #fff;
+  padding: 20px;
+}
+
+.cla_box a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+}

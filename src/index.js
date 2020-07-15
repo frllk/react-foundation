@@ -4,6 +4,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { render } from '@testing-library/react';
+import FunComp from './components/FunComp'
+import ClaComp from './components/ClaComp'
+import ClaCompEvent from './components/events/ClaCompEvent'
+import FunCompEvent from './components/events/FunCompEvent'
+
 
 // 使用React.createElement创建react元素
 // const h1 = React.createElement('h1', { id: 'test' }, 'hello react！')
@@ -180,6 +185,7 @@ class Compt extends React.Component {
     return (
       <div>
         <h1>我是类组件</h1>
+        <FunComp />
       </div>
     )
   }
@@ -192,9 +198,22 @@ const div6 = (
     <Fnc2></Fnc2>
     <hr />
     <Compt></Compt>
+    <hr />
+    <h1>单文件组件</h1>
+    <FunComp />
+    <ClaComp />
   </div>
 )
 
-ReactDOM.render(div6,
+// jsx模板
+const tpl = (
+  <div>
+    <ClaCompEvent />
+    <hr />
+    <FunCompEvent />
+  </div>
+)
+
+ReactDOM.render(tpl,
   document.getElementById('root')
 );
