@@ -11,6 +11,17 @@ Parent.prototype.getName = function () {
   console.log(this.name)
 }
 
+// 定义静态属性和方法 => 静态 => 不需要new
+Parent.ts1 = 1
+Parent.tsfn = function () {
+  // this输出是谁？
+  console.log('es5中静态方法', this)
+  return '调用了Parent静态方法tsfn'
+}
+console.log('es5中调用静态属性和方法', Parent.ts1, Parent.tsfn())
+
+
+
 /**
  * es5继承
  * 继承什么？
@@ -74,6 +85,22 @@ class Chi extends Par {
   getAge () {
     console.log(this.age)
   }
+
+  // *****************************************
+  // 方式二：定义静态属性和方法=>使用关键字 static
+  static sta2 = [1, 2, 3]
+  static fn2 = () => {
+    console.log('使用关键字 static方式定义静态属性和方法', Chi.sta2)
+  }
 }
+
+// es6的静态属性和方法
+// 方式一：传统方式
+Chi.sta = 2
+Chi.staFn = () => {
+  console.log('调用了Chi.staFn方法', Chi.sta);
+  return 100
+}
+
 var ch = new Chi('小天')
-console.log(ch);
+console.log(ch, Chi.staFn());
