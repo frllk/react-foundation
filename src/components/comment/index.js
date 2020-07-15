@@ -5,6 +5,67 @@ import './index.css'
 
 class Index extends Component {
   // js逻辑
+  // 定义响应式数据
+  state = {
+    // form: {
+    //   name: '', // 评论人
+    //   content: '', // 评论内容
+    // },
+    name: '', // 评论人
+    content: '', // 评论内容
+    // 评论列表
+    list: [
+      // { id: 0, name: '特朗普', content: '我来了！' },
+      // { id: 1, name: '普京', content: '我是战斗民族！' }
+    ],
+
+  }
+
+  // 评论列表渲染
+  renderList = () => {
+    const { list } = this.state
+    return list.length ? list.map(item => {
+      return (
+        <li key={item.id}>
+          <p className="pline">{item.name}</p>
+          <p>{item.content}</p>
+        </li>
+      )
+    }) : <li className="nodata"><p>暂无评论！</p></li>
+  }
+
+  // 批量处理多个表单元素的双向绑定
+  handlerInput = (e) => {
+    // console.log(e.target.name, e.target.value);
+
+    this.setState({
+      // key:val
+      [e.target.name]: e.target.value
+    })
+  }
+
+  /**
+   * 发表评论
+   * 1.获取评论数据
+   * 2.修改list数据=>新增一条
+   * 3.setState
+   */
+  pub = () => {
+    const { name, content, list } = this.state
+    if (!name || !content) {
+      return alert('评论人或者评论内容不能为空！')
+    }
+
+    console.log(name, content)
+    // list.unshift({ id: list.length, name, content })
+    this.setState({
+      list: [{ id: list.length, name, content }, ...list],
+      // 清空输入值
+      name: '',
+      content: ''
+    })
+  }
+
 
   // 模板
   render () {
@@ -13,22 +74,14 @@ class Index extends Component {
         <h1>评论</h1>
         {/* 发表评论 */}
         <div className="pub">
-          <p><input type="text" /></p>
-          <p><textarea /></p>
-          <p><button className="btn">发表评论</button></p>
+          <p><input name="name" type="text" value={this.state.name} onChange={this.handlerInput} /></p>
+          <p><textarea name="content" value={this.state.content} onChange={this.handlerInput} /></p>
+          <p><button onClick={this.pub} className="btn">发表评论</button></p>
         </div>
         {/* 评论列表 */}
         <hr className="line" />
         <ul className="list">
-          <li>
-            <p className="pline">小红</p>
-            <p>发表评论了！</p>
-          </li>
-          <li>
-            <p className="pline">小蓝</p>
-            <p>刚发表过！</p>
-          </li>
-          <li className="nodata"><p>暂无评论！</p></li>
+          {this.renderList()}
         </ul>
       </div>
     );
