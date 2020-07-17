@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+// 导入评论列表组件
+import List from './list'
+
 // 导入组件样式
 import './index.css'
 
@@ -21,18 +24,6 @@ class Index extends Component {
 
   }
 
-  // 评论列表渲染
-  renderList = () => {
-    const { list } = this.state
-    return list.length ? list.map(item => {
-      return (
-        <li key={item.id}>
-          <p className="pline">{item.name}</p>
-          <p>{item.content}</p>
-        </li>
-      )
-    }) : <li className="nodata"><p>暂无评论！</p></li>
-  }
 
   // 批量处理多个表单元素的双向绑定
   handlerInput = (e) => {
@@ -80,9 +71,8 @@ class Index extends Component {
         </div>
         {/* 评论列表 */}
         <hr className="line" />
-        <ul className="list">
-          {this.renderList()}
-        </ul>
+        {/* 评论列表组件 */}
+        <List list={this.state.list} ></List>
       </div>
     );
   }
