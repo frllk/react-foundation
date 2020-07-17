@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrap3 {
+  /* position: relative; */
+  /* 设置width: 100%;会出问题。会出现滚动条，实际宽度为100%+400px */
+  width: 100%;
+  /* padding: 0 200px; */
+  /* 解决上述问题 */
+  box-sizing: border-box;
+  margin-top: 100px;
+}
+
+.left3,
+.right3 {
+  width: 200px;
+  height: 100px;
+  background-color: pink;
+}
+
+.left3 {
+  float: left;
+}
+
+.right3 {
+  float: right;
+}
+
+/* 右边盒子会掉下来
+  中间元素为块级元素，标准流，会影响后面的元素
+  ||
+  改变盒子顺序 =>不推荐
+*/
+.center3 {
+  overflow: hidden;
+  margin: 0 200px;
+  background-color: tomato;
+}

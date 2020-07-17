@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ********************************************************************** */
+/* 圣杯布局方法1 */
+.wrap {
+  position: relative;
+  /* 设置width: 100%;会出问题。会出现滚动条，实际宽度为100%+400px */
+  width: 100%;
+  /* 设置父盒子padding，为css3的盒模型  padding + border + width==width */
+  padding: 0 200px;
+  /* 解决上述问题 */
+  box-sizing: border-box;
+  margin-top: 50px;
+}
+
+.left,
+.right {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  background-color: pink;
+}
+
+.left {
+  /* float: left; */
+  top: 0;
+  left: 0;
+}
+
+.right {
+  /* float: right; */
+  top: 0;
+  right: 0;
+}
+
+/* 右边盒子会掉下来
+    中间元素为块级元素，标准流，会影响后面的元素
+*/
+.center {
+  /* margin: 0 200px; */
+  background-color: tomato;
+}

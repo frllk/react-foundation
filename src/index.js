@@ -14,6 +14,7 @@ import Comment from './components/comment'
 import Communication from './components/communication'
 import Context from './components/context'
 import PropsMore from './components/propsMore'
+import GrailLayout from './components/grailLayout'
 
 
 // 使用React.createElement创建react元素
@@ -115,6 +116,10 @@ const renderSongs = () => {
   })
 }
 
+// jsx样式处理
+// 行内样式-style
+// 类名 - className（推荐）
+
 // 列表渲染模板
 // jsx会调用React.createElement创建元素，并将元素渲染到对应标签中
 const list_tpl = (
@@ -132,25 +137,7 @@ const list_tpl = (
   </div>
 )
 
-// jsx样式处理
-// 行内样式-style
-// 类名 - className（推荐）
 
-
-
-//******************************************************************************** */
-
-
-const layout_1 = (
-  <div>
-    <h1>圣杯布局：左右两侧固定，中间自适应</h1>
-    <div className="wrap">
-      <div className="left">左</div>
-      <div className="center">中</div>
-      <div className="right">右</div>
-    </div>
-  </div>
-)
 
 
 
@@ -225,7 +212,8 @@ const tpl = (
     {/* <Comment /> */}
     {/* <Communication /> */}
     {/* <Context /> */}
-    <PropsMore />
+    {/* <PropsMore /> */}
+    <GrailLayout />
   </div>
 )
 
