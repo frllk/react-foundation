@@ -13,6 +13,7 @@ import FormIndex from './components/form'
 import Comment from './components/comment'
 import Communication from './components/communication'
 import Context from './components/context'
+import PropsMore from './components/propsMore'
 
 
 // 使用React.createElement创建react元素
@@ -223,7 +224,8 @@ const tpl = (
     <hr /> */}
     {/* <Comment /> */}
     {/* <Communication /> */}
-    <Context />
+    {/* <Context /> */}
+    <PropsMore />
   </div>
 )
 
