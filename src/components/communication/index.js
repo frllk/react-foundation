@@ -20,6 +20,8 @@ const Fnc = (props) => {
         // 调用
         props.fn(100)
       }}>调用父组件的方法</button>
+      {/* 修改父组件的state数据a */}
+      <button onClick={props.ca}>修改父组件的state数据a</button>
     </div>
   )
 }
@@ -30,12 +32,17 @@ class Child extends Component {
     console.log('构造器中使用props', this.props)
   }
 
+  state = {
+    // a: 20000 // 状态提升：提升到父组件去定义
+  }
+
   render () {
     console.log('类组件接收传递数据', this.props)
     this.props.b.push(888)
     return (
       <div>
         <h2>类子组件</h2>
+        <p>{this.props.a}</p>
         <p>{this.props.b}</p>
         {this.props.tpl}
         <button onClick={(e) => {
@@ -50,7 +57,7 @@ class Child extends Component {
 // 父组件
 export default class index extends Component {
   state = {
-    a: 1,
+    a: 20000,
     b: [1, 2, 3, 4, 5],
     obj: {
       a: 2, b: 4
@@ -71,15 +78,23 @@ export default class index extends Component {
     console.log('接收子组件数据：', e, n)
   }
 
+  // 修改共享数据的方法
+  changeA = () => {
+    this.setState({
+      a: Math.random() * 10000
+    })
+  }
+
   render () {
     return (
       <div>
         <h1>组件通信</h1>
         <p>{this.state.b}</p>
+        <button onClick={this.changeA}>修改a</button>
         <hr />
-        <Fnc a={this.state.a} fn={this.parFn} str="some msg from parent" obj={this.state.obj} />
+        <Fnc a={this.state.a} ca={this.changeA} fn={this.parFn} str="some msg from parent" obj={this.state.obj} />
         <hr />
-        <Child b={this.state.b} fn={this.parData} isHide={false} tpl={<p>123 =》 传递的是虚拟dom，虚拟dom是一个object对象</p>} />
+        <Child a={this.state.a} b={this.state.b} fn={this.parData} isHide={false} tpl={<p>123 =》 传递的是虚拟dom，虚拟dom是一个object对象</p>} />
       </div>
     )
   }
