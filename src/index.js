@@ -12,6 +12,7 @@ import ResponsiveIndex from './components/responsive'
 import FormIndex from './components/form'
 import Comment from './components/comment'
 import Communication from './components/communication'
+import Context from './components/context'
 
 
 // 使用React.createElement创建react元素
@@ -221,7 +222,8 @@ const tpl = (
     <FormIndex />
     <hr /> */}
     {/* <Comment /> */}
-    <Communication />
+    {/* <Communication /> */}
+    <Context />
   </div>
 )
 
