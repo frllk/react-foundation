@@ -15,7 +15,11 @@ const Fnc = (props) => {
     <div>
       <h2>函数子组件</h2>
       <p>{props.a}</p>
-      <button onClick={props.fn}>调用父组件的方法</button>
+      {/* 给事件处理函数=》传递实参=》函数套函数 */}
+      <button onClick={() => {
+        // 调用
+        props.fn(100)
+      }}>调用父组件的方法</button>
     </div>
   )
 }
@@ -34,6 +38,10 @@ class Child extends Component {
         <h2>类子组件</h2>
         <p>{this.props.b}</p>
         {this.props.tpl}
+        <button onClick={(e) => {
+          console.log(e);
+          this.props.fn(e, 1000)
+        }}>调用父组件传递的方法=》子传父</button>
       </div>
     )
   }
@@ -49,9 +57,20 @@ export default class index extends Component {
     }
   }
 
-  parFn = () => {
-    console.log('我是父组件的方法', this.state);
+  // 父组件的方法
+  parFn = (data) => {
+    console.log('我是父组件的方法=>接收子组件数据', data);
   }
+
+  /**
+   * 子传父
+   * 1.在父组件中定义接收子组件共享数据的方法
+   * 
+  */
+  parData = (e, n) => {
+    console.log('接收子组件数据：', e, n)
+  }
+
   render () {
     return (
       <div>
@@ -60,7 +79,7 @@ export default class index extends Component {
         <hr />
         <Fnc a={this.state.a} fn={this.parFn} str="some msg from parent" obj={this.state.obj} />
         <hr />
-        <Child b={this.state.b} isHide={false} tpl={<p>123 =》 传递的是虚拟dom，虚拟dom是一个object对象</p>} />
+        <Child b={this.state.b} fn={this.parData} isHide={false} tpl={<p>123 =》 传递的是虚拟dom，虚拟dom是一个object对象</p>} />
       </div>
     )
   }
