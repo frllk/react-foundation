@@ -11,6 +11,7 @@ import FunCompEvent from './components/events/FunCompEvent'
 import ResponsiveIndex from './components/responsive'
 import FormIndex from './components/form'
 import Comment from './components/comment'
+import Communication from './components/communication'
 
 
 // 使用React.createElement创建react元素
@@ -219,7 +220,8 @@ const tpl = (
     <hr />
     <FormIndex />
     <hr /> */}
-    <Comment />
+    {/* <Comment /> */}
+    <Communication />
   </div>
 )
 
