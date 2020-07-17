@@ -201,6 +201,8 @@ const div6 = (
 // jsx模板
 const tpl = (
   <div>
+    {/* <GrailLayout />
+    <hr /> */}
     {/* <ClaCompEvent />
     <hr />
     <FunCompEvent />
@@ -212,8 +214,7 @@ const tpl = (
     {/* <Comment /> */}
     {/* <Communication /> */}
     {/* <Context /> */}
-    {/* <PropsMore /> */}
-    <GrailLayout />
+    <PropsMore />
   </div>
 )
 
