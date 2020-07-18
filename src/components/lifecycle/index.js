@@ -5,7 +5,7 @@
  * 2.更新时
  *  执行顺序：1.render() => 刷新页面 2. componentDidUpdate()=>更新完成执行
  * 3.销毁时
- * 
+ *  componentWillUnmount()
  */
 import React, { Component } from 'react'
 
@@ -16,7 +16,8 @@ export default class index extends Component {
     console.log('1.执行constructor()=>new 实例化');
     // 作用：1.定义state（推荐在外面定义）响应数据  2.处理事件绑定，事件处理函数的this绑定（bind方式）=> 推荐在外面写箭头函数
     this.state = {
-      a: 0
+      a: 0,
+      isShow: false // 是否显示
     }
   }
 
@@ -41,7 +42,9 @@ export default class index extends Component {
   // 更新时：点击加1
   handlerAdd = () => {
     this.setState({
-      a: Math.random() * 100
+      a: Math.random() * 100,
+      // 控制组件是否显示
+      isShow: !this.state.isShow // 是否显示
     })
   }
   // 强制更新=>强制刷新页面（不管数据有没有变化）=>同样会触发更新时（慎用）
@@ -53,15 +56,39 @@ export default class index extends Component {
     // 避免在这里更改数据=>会造成死循环（只要渲染就改数据，改数据就要重新渲染，然后死循环了）
     // 数据变化：多次执行
     console.log('2.render()=>渲染模板 ');
-    const { a } = this.state
+    const { a, isShow } = this.state
     return (
       <div>
         <h1>生命周期</h1>
         <p>{a}</p>
         <button onClick={this.handlerAdd}>触发更新</button>
         <button onClick={this.handlerForce}>触发更新</button>
+        <hr />
+        {
+          isShow ? <Child /> : null
+        }
       </div>
     )
   }
 }
 
+// 子组件
+class Child extends Component {
+
+  componentDidMount () {
+    console.log('子组件创建了');
+  }
+  // 组件销毁时执行
+  componentWillUnmount () {
+    // 作用：清除定时器/事件解绑
+    console.log('子组件销毁了');
+  }
+
+  render () {
+    return (
+      <div>
+        <h1>类子组件</h1>
+      </div>
+    )
+  }
+}
