@@ -1,0 +1,9 @@
+.menu a {
+  display: inline-block;
+  margin: 16px;
+  text-decoration: none;
+}
+
+.red {
+  color: red;
+}
