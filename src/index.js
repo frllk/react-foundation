@@ -15,6 +15,7 @@ import Communication from './components/communication'
 import Context from './components/context'
 import PropsMore from './components/propsMore'
 import GrailLayout from './components/grailLayout'
+import LifeCycle from './components/lifecycle'
 
 
 // 使用React.createElement创建react元素
@@ -214,7 +215,8 @@ const tpl = (
     {/* <Comment /> */}
     {/* <Communication /> */}
     {/* <Context /> */}
-    <PropsMore />
+    {/* <PropsMore /> */}
+    <LifeCycle />
   </div>
 )
 
