@@ -11,12 +11,30 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom'
 import './index.css'
+import Login from './login'
+
+
+const Fnc = (props) => {
+  console.log('Fnc', props);
+  return <div>
+    <h2>我是首页的子组件</h2>
+  </div>
+}
 
 class Home extends Component {
+  componentDidMount () {
+    console.log('获取传递的参数', this.props.location)
+  }
   render () {
     return (
       <div>
         <h1>Home</h1>
+        <button onClick={() => {
+          // this.props.history.goBack()
+          // go方法：传0/空 => 刷新页面
+          this.props.history.go(-1)
+        }}>编程式导航</button>
+        <Fnc {...this.props} />
       </div>
     )
   }
@@ -32,16 +50,24 @@ class Abount extends Component {
   }
 }
 // 关于我们
-const Contact = () => {
+const Contact = (props) => {
   return (
     <div>
       <h1>Contact</h1>
+      <button onClick={() => {
+        console.log(props);
+        props.history.push('/')
+      }}>跳路由</button>
     </div>
   )
 }
 
 // 新闻中心
 class News extends Component {
+  componentDidMount () {
+    // 获取动态路由参数
+    console.log('news', this.props, this.props.match.params)
+  }
   render () {
     return (
       <div>
@@ -84,6 +110,8 @@ const App = () => {
         <Route path="/contact" component={Contact} />
         {/* 动态路由=>详情 */}
         <Route path="/news/:id" component={News} />
+        {/* 登录 */}
+        <Route path="/login" component={Login} />
         {/* 404页面 */}
         <Route component={NotFound} />
       </Switch>
