@@ -39,12 +39,24 @@ class Home extends Component {
     )
   }
 }
+
+// 关于我们二级路由组件
+const AboutTwo = () => {
+  return (
+    <div>
+      <h3>关于我们二级路由组件</h3>
+    </div>
+  )
+}
+
 // 关于我们
 class Abount extends Component {
   render () {
     return (
       <div>
         <h1>Abount</h1>
+        <p><Link to="/about/two">关于我们二级路由</Link></p>
+        <Route path="/about/two" component={AboutTwo} />
       </div>
     )
   }
@@ -86,6 +98,23 @@ const NotFound = () => {
   )
 }
 
+// 封装Auth组件：路由守卫
+const Auth = ({ path, component: Com }) => {
+  return (
+    <Route path={path} exact render={(props) => {
+      // console.log(props); => 能干路由守卫？
+      const token = localStorage.getItem('token')
+      if (token) {
+        return <Com {...props} />
+      } else {
+        // 跳转到登录
+        return <Redirect to="/login" />
+      }
+    }} />
+  )
+}
+
+
 // 根组件
 const App = () => {
   // 模板
@@ -97,15 +126,29 @@ const App = () => {
         <Link to="/about">关于我们</Link>
         <Link to="/contact">联系我们</Link>
       </nav>
-      {/* 配置路由规则 */}
+      {/* 配置路由规则=>一级路由 */}
       <Switch>
         {/* 路由重定向 */}
         <Redirect from="/" to="/home" exact />
         {/* 首页 */}
         {/* 默认：模糊匹配  exact：精确匹配 */}
-        <Route path="/home" exact component={Home} />
+        {/* component={Home} */}
+        {/* <Route path="/home" component={Home} /> */}
+        <Auth path="/home" component={Home} />
+        {/* <Route path="/home" exact render={(props) => {
+          // console.log(props); => 能干路由守卫？
+          // 根据token判断
+          const token = 0
+          if (token) {
+            return <Home {...props} />
+          } else {
+            // 跳转到登录
+            return <Redirect to="/login" />
+          }
+        }} /> */}
         {/* 关于我们 */}
-        <Route path="/about" component={Abount} />
+        {/* <Route path="/about" component={Abount} /> */}
+        <Auth path="/about" component={Abount} />
         {/* 联系我们 */}
         <Route path="/contact" component={Contact} />
         {/* 动态路由=>详情 */}

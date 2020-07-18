@@ -13,6 +13,10 @@ export default class login extends Component {
     // push('/')
     // 传参失败？ ===> 跳转的页面是重定向页面，参数丢失
     // push({ pathname: '/', params: { a: 1, b: 2 } })
+
+    // 本地存储token
+    localStorage.setItem('token', Math.random() * 10)
+
     push({ pathname: '/home', params: { a: 1, b: 2 } })
     // replace('/') // 无法回退
   }
