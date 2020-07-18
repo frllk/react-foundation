@@ -9,7 +9,7 @@
  */
 
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom'
 import './index.css'
 
 class Home extends Component {
@@ -66,16 +66,18 @@ const App = () => {
   return (
     <Router>
       <nav className="menu">
-        <Link to="/">首页</Link>
+        <Link to="/home">首页</Link>
         <Link to="/news/123">新闻</Link>
         <Link to="/about">关于我们</Link>
         <Link to="/contact">联系我们</Link>
       </nav>
       {/* 配置路由规则 */}
       <Switch>
+        {/* 路由重定向 */}
+        <Redirect from="/" to="/home" exact />
         {/* 首页 */}
         {/* 默认：模糊匹配  exact：精确匹配 */}
-        <Route path="/" exact component={Home} />
+        <Route path="/home" exact component={Home} />
         {/* 关于我们 */}
         <Route path="/about" component={Abount} />
         {/* 联系我们 */}
