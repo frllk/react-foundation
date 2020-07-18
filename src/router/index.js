@@ -129,6 +129,12 @@ const Auth = ({ path, component: Com }) => {
   )
 }
 
+// 配置
+const RouteConfig = [
+  { path: '/contact', component: Contact, isAuth: false },
+  { path: '/news/:id', component: News, isAuth: false },
+  { path: '/login', component: Login, isAuth: false }
+]
 
 // 根组件
 const App = () => {
@@ -167,9 +173,16 @@ const App = () => {
         {/* 联系我们 */}
         <Route path="/contact" component={Contact} />
         {/* 动态路由=>详情 */}
-        <Route path="/news/:id" component={News} />
+        {/* <Route path="/news/:id" component={News} /> */}
         {/* 登录 */}
-        <Route path="/login" component={Login} />
+        {/* <Route path="/login" component={Login} /> */}
+        {
+          // RouteConfig.map((item, i) => {
+          //   console.log('item=====', item);
+          //   return <Route key={i} path={item.path} component={item.component} />
+          // })
+          RouteConfig.map((item, i) => <Route key={i} path={item.path} component={item.component} />)
+        }
         {/* 404页面 */}
         <Route component={NotFound} />
       </Switch>
