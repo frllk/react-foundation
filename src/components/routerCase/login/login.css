@@ -1,0 +1,23 @@
+.login {
+  padding: 20px;
+  text-align: center;
+}
+
+.login>div {
+  margin: 10px 0;
+}
+
+.login label {
+  width: 60px;
+  display: inline-block;
+}
+
+.login input {
+  height: 30px;
+  outline: none;
+}
+
+.login button {
+  width: 80px;
+  height: 30px;
+}

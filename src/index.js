@@ -21,6 +21,7 @@ import LifeCycle from './components/lifecycle'
 // import CompPackage from './components/compPackage/renderProps'
 // import CompPackage from './components/compPackage/hoc'
 import Router from './router'
+import RouterCase from './components/routerCase'
 
 
 // 使用React.createElement创建react元素
@@ -223,7 +224,8 @@ const tpl = (
     {/* <PropsMore /> */}
     {/* <LifeCycle /> */}
     {/* <CompPackage /> */}
-    <Router />
+    {/* <Router /> */}
+    <RouterCase />
   </div>
 )
 
