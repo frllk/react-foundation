@@ -66,7 +66,7 @@ const App = () => {
   return (
     <Router>
       <nav className="menu">
-        <Link to="/home">首页</Link>
+        <Link to="/">首页</Link>
         <Link to="/news/123">新闻</Link>
         <Link to="/about">关于我们</Link>
         <Link to="/contact">联系我们</Link>
@@ -74,7 +74,8 @@ const App = () => {
       {/* 配置路由规则 */}
       <Switch>
         {/* 首页 */}
-        <Route path="/home" component={Home} />
+        {/* 默认：模糊匹配  exact：精确匹配 */}
+        <Route path="/" exact component={Home} />
         {/* 关于我们 */}
         <Route path="/about" component={Abount} />
         {/* 联系我们 */}
