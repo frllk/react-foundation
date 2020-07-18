@@ -9,7 +9,7 @@
  */
 
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch, Redirect, withRouter } from 'react-router-dom'
 import './index.css'
 import Login from './login'
 
@@ -20,6 +20,18 @@ const Fnc = (props) => {
     <h2>我是首页的子组件</h2>
   </div>
 }
+
+const Fnx = (props) => {
+  console.log('Fnx', props);
+  return (
+    <div>
+      <h2>我是Fnx组件</h2>
+    </div>
+  )
+}
+
+// withRouter高阶组件：让一个组件的props增加了一些路由属性和方法，history、match、location。
+const NewFnx = withRouter(Fnx)
 
 class Home extends Component {
   componentDidMount () {
@@ -34,7 +46,10 @@ class Home extends Component {
           // go方法：传0/空 => 刷新页面
           this.props.history.go(-1)
         }}>编程式导航</button>
+        <hr />
         <Fnc {...this.props} />
+        <hr />
+        <NewFnx />
       </div>
     )
   }
@@ -102,7 +117,7 @@ const NotFound = () => {
 const Auth = ({ path, component: Com }) => {
   return (
     <Route path={path} exact render={(props) => {
-      // console.log(props); => 能干路由守卫？
+      console.log('auth======', props); // => 能干路由守卫？
       const token = localStorage.getItem('token')
       if (token) {
         return <Com {...props} />
