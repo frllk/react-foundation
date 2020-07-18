@@ -17,7 +17,8 @@ import PropsMore from './components/propsMore'
 import GrailLayout from './components/grailLayout'
 import LifeCycle from './components/lifecycle'
 // import CompPackage from './components/compPackage/case/renderProps'
-import CompPackage from './components/compPackage'
+// import CompPackage from './components/compPackage'
+import CompPackage from './components/compPackage/renderProps'
 
 
 // 使用React.createElement创建react元素
