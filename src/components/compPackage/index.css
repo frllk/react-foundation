@@ -1,0 +1,9 @@
+html,
+body {
+  cursor: url("./m17.ico"), auto;
+  text-align: center;
+}
+
+.color {
+  color: red;
+}
