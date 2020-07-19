@@ -1,7 +1,7 @@
 /**
  * 性能优化
  */
-import React, { Component } from 'react'
+import React, { Component, PureComponent } from 'react'
 
 export default class index extends Component {
   state = {
@@ -41,11 +41,13 @@ export default class index extends Component {
 }
 
 // rcjc
-class Child extends Component {
-  shouldComponentUpdate (nextProps) {
-    console.log(nextProps, this.props)
-    return this.props.count !== nextProps.count
-  }
+class Child extends PureComponent {
+
+  // shouldComponentUpdate (nextProps) {
+  //   console.log(nextProps, this.props)
+  //   return this.props.count !== nextProps.count
+  // }
+
   render () {
     console.log('我是子组件');
     return (
@@ -56,3 +58,4 @@ class Child extends Component {
     )
   }
 }
+
