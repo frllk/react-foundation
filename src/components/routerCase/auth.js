@@ -13,7 +13,7 @@ const Auth = ({ path, component: Com }) => {
       const userInfo = JSON.parse(localStorage.getItem('token')) || {}
       console.log('token===', userInfo)
 
-      if (userInfo) { // .userName
+      if (userInfo.userName) { // .userName
         // console.log('1', props);
         return <Com {...props} />
       } else {
