@@ -14,7 +14,7 @@ import Comment from './components/comment'
 import Communication from './components/communication'
 import Context from './components/context'
 import PropsMore from './components/propsMore'
-import GrailLayout from './components/grailLayout'
+// import GrailLayout from './components/grailLayout'
 import LifeCycle from './components/lifecycle'
 // import CompPackage from './components/compPackage/case/renderProps'
 // import CompPackage from './components/compPackage'
@@ -23,6 +23,8 @@ import LifeCycle from './components/lifecycle'
 import Router from './router'
 import RouterCase from './components/routerCase'
 import SetStateMore from './components/setStateMore'
+import UpdateCase from './components/updateCase'
+import PerformanceOptimization from './components/performanceOptimization'
 
 
 // 使用React.createElement创建react元素
@@ -226,8 +228,10 @@ const tpl = (
     {/* <LifeCycle /> */}
     {/* <CompPackage /> */}
     {/* <Router /> */}
-    <RouterCase />
-    <SetStateMore />
+    {/* <RouterCase /> */}
+    {/* <SetStateMore /> */}
+    {/* <UpdateCase /> */}
+    <PerformanceOptimization />
   </div>
 )
 
