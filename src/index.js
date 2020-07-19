@@ -231,7 +231,7 @@ const tpl = (
     <RouterCase />
     {/* <SetStateMore /> */}
     {/* <UpdateCase /> */}
-    {/* <PerformanceOptimization /> */}
+    <PerformanceOptimization />
   </div>
 )
 
