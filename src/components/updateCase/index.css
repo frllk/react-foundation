@@ -1,0 +1,39 @@
+.app {
+  width: 600px;
+  padding: 20px;
+  background: rgb(246, 248, 210);
+  border: 1px solid rgb(235, 243, 158)
+}
+
+.next {
+  display: flex;
+  justify-content: space-around;
+}
+
+.box {
+  padding: 10px;
+  background-color: rgba(158, 205, 250, .6);
+}
+
+.par1 {
+  padding: 10px;
+  width: 50%;
+  background: rgb(62, 151, 252)
+}
+
+.par2 {
+  padding: 10px;
+  width: 50%;
+  background: rgb(252, 154, 62)
+}
+
+.btn button {
+  padding: 0 10px;
+  height: 35px;
+  line-height: 35px;
+  background: rgb(28, 218, 69);
+  color: #fff;
+  text-align: center;
+  border: none;
+
+}
