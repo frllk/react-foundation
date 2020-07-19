@@ -5,16 +5,15 @@
 
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
-import Login from './login'
 
 const Auth = ({ path, component: Com }) => {
   return (
     <Route path={path} exact render={(props) => {
-      console.log('auth===', props)
+      // console.log('auth===', props)
       const userInfo = JSON.parse(localStorage.getItem('token')) || {}
       console.log('token===', userInfo)
 
-      if (userInfo) {
+      if (userInfo) { // .userName
         // console.log('1', props);
         return <Com {...props} />
       } else {

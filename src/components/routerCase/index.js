@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link, Switch, Route, Redirect } from "react-ro
 import RouteConfig from '../../router/routerConfig'
 import Auth from './auth'
 
-export default class index extends Component {
+export default class App extends Component {
   render () {
     return (
       <Router>
@@ -20,7 +20,12 @@ export default class index extends Component {
             {/* 路由重定向 */}
             <Redirect from="/" to="/home" exact />
             {
-              RouteConfig.map((item, i) => <Auth key={i} path={item.path} component={item.component} />)
+              RouteConfig.map((item, i) => {
+                if (item.isAuth) {
+                  return <Auth key={i} path={item.path} component={item.component} />
+                }
+                return <Route key={i} path={item.path} component={item.component} />
+              })
             }
           </Switch>
         </div>

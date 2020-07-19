@@ -1,0 +1,9 @@
+.navs {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navs a {
+  text-decoration: none;
+  color: #999;
+}

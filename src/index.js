@@ -228,10 +228,10 @@ const tpl = (
     {/* <LifeCycle /> */}
     {/* <CompPackage /> */}
     {/* <Router /> */}
-    {/* <RouterCase /> */}
+    <RouterCase />
     {/* <SetStateMore /> */}
     {/* <UpdateCase /> */}
-    <PerformanceOptimization />
+    {/* <PerformanceOptimization /> */}
   </div>
 )
 
