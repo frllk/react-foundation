@@ -14,7 +14,7 @@ import Comment from './components/comment'
 import Communication from './components/communication'
 import Context from './components/context'
 import PropsMore from './components/propsMore'
-// import GrailLayout from './components/grailLayout'
+import GrailLayout from './components/grailLayout'
 import LifeCycle from './components/lifecycle'
 // import CompPackage from './components/compPackage/case/renderProps'
 // import CompPackage from './components/compPackage'
@@ -224,12 +224,17 @@ const tpl = (
     {/* <Comment /> */}
     {/* <Communication /> */}
     {/* <Context /> */}
+    {/* props高级玩法 */}
     {/* <PropsMore /> */}
+    {/* 生命周期 */}
     {/* <LifeCycle /> */}
+    {/* 组件复用 */}
     {/* <CompPackage /> */}
+    {/* 路由 */}
     {/* <Router /> */}
-    <RouterCase />
-    {/* <SetStateMore /> */}
+    {/* 路由案例 */}
+    {/* <RouterCase /> */}
+    <SetStateMore />
     {/* <UpdateCase /> */}
     {/* <PerformanceOptimization /> */}
   </div>
