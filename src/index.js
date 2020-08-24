@@ -234,9 +234,9 @@ const tpl = (
     {/* <Router /> */}
     {/* 路由案例 */}
     {/* <RouterCase /> */}
-    <SetStateMore />
+    {/* <SetStateMore /> */}
     {/* <UpdateCase /> */}
-    {/* <PerformanceOptimization /> */}
+    <PerformanceOptimization />
   </div>
 )
 
